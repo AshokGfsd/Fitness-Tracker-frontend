@@ -2,7 +2,7 @@
 
 ### _**Fitness-Tracker**_
 
-- [_**Fitness-Tracker Task Deploy**_]( )
+- [_**Fitness-Tracker Task Deploy**_](https://fitness-tracker-frontend-phi.vercel.app)
 
 - [_**Fitness-Tracker Task Folder**_](./)
 
