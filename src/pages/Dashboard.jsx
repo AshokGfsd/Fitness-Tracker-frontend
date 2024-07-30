@@ -4,7 +4,7 @@ import { AiOutlineFire } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions, selectUser } from "../features/user/userSlice";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import TodayUpdateModal from "../components/Modal/TodayUpdate";
 
@@ -171,7 +171,7 @@ const Dashboard = () => {
     0
   );
 
-  return (
+  return user.log ? (
     <div className="dashboard">
       <h1>
         Dashboard <TodayUpdateModal state={state} setState={setState} />
@@ -211,7 +211,7 @@ const Dashboard = () => {
           <img src="dashboardCardBg.svg" />
         </div>
       </div>
-      <h3>Total colories</h3>
+      <h3>Total colories from register</h3>
       <div className="dashboard__container">
         <div className="dashboard__card" data-loading={loading}>
           <p>
@@ -266,7 +266,7 @@ const Dashboard = () => {
           <LineChart
             xAxis={[{ scaleType: "point", data: data.date }]}
             yAxis={[
-              { max: data.bmi[0] + 5, min: data.bmi[0] - 5, label: "VALUE" },
+              { max: data.bmi[0] + 5, min: data.bmi[0] - 5, label: "BMI" },
             ]}
             slotProps={{
               loadingOverlay: { message: "Loading...." },
@@ -275,7 +275,7 @@ const Dashboard = () => {
               {
                 data: data.bmi,
                 label: "BMI",
-              
+
                 color:
                   data.bmi[data.bmi.length - 1] > 18.4 &&
                   data.bmi[data.bmi.length - 1] < 24.9
@@ -289,7 +289,13 @@ const Dashboard = () => {
         <div className="dashboard__chart" data-loading={loading}>
           <LineChart
             xAxis={[{ scaleType: "point", data: data.date }]}
-            yAxis={[{ label: "VALUE" }]}
+            yAxis={[
+              {
+                label: "in cm",
+                min: data.height[0] - 20,
+                max: data.height[0] + 20,
+              },
+            ]}
             slotProps={{
               loadingOverlay: { message: "Loading...." },
             }}
@@ -299,6 +305,24 @@ const Dashboard = () => {
                 label: "Height",
                 color: "blue",
               },
+            ]}
+            height={300}
+          />
+        </div>
+        <div className="dashboard__chart" data-loading={loading}>
+          <LineChart
+            xAxis={[{ scaleType: "point", data: data.date }]}
+            yAxis={[
+              {
+                label: "in kg",
+                min: data.weight[0] - 20,
+                max: data.weight[0] + 20,
+              },
+            ]}
+            slotProps={{
+              loadingOverlay: { message: "Loading...." },
+            }}
+            series={[
               {
                 data: data.weight,
                 label: "Weight",
@@ -318,7 +342,7 @@ const Dashboard = () => {
               {
                 max: data.totalCaloriesConsumed[0] + 100,
                 min: data.totalCaloriesConsumed[0] - 100,
-                label: "VALUE",
+                label: "in kcals",
               },
             ]}
             series={[
@@ -346,7 +370,7 @@ const Dashboard = () => {
               {
                 max: data.totalCaloriesGoal[0] + 100,
                 min: data.totalCaloriesGoal[0] - 100,
-                label: "VALUE",
+                label: "in kcals",
               },
             ]}
             series={[
@@ -365,6 +389,17 @@ const Dashboard = () => {
           />
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="dash">
+      <h1>Reach your goals with Fitness Tracker </h1>Build healthy habits with
+      the all-in-one food, exercise, and calorie tracker, Goals, Suggestion.
+      <br />
+      <br />
+      <br />
+      <Link className="button" to={"/signin"}>
+        Start Today
+      </Link>
     </div>
   );
 };

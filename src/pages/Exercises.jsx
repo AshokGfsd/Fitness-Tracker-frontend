@@ -32,9 +32,9 @@ const Exercises = () => {
       {loading && <h4>Loading...</h4>}
       <div className="exericise__container">
         <div className="exericise__container">
-          <h1>Today Exercises</h1>
+          <h1 >Today Exercises</h1>
           {exerciseLoading.adding && <PlaceholderCard />}
-          {exercises.length==0&& <h3>PLEASE ADD TODAY Exercise</h3> }
+          {exercises.length == 0 && <h3>PLEASE ADD TODAY Exercise</h3>}
           {exercises.map((exercise) => (
             <ExerciseCard key={exercise._id} {...exercise} />
           ))}

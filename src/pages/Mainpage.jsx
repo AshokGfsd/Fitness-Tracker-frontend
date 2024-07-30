@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../Layout/Layout";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, userActions } from "../features/user/userSlice";
 import {
@@ -76,7 +76,7 @@ const Mainpage = () => {
 
   useEffect(() => {
     if (user.log) {
-      console.log(user)
+      console.log(user);
       if (
         user.profile.BMI.length == 0 ||
         new Date().getDate() !==
@@ -86,12 +86,16 @@ const Mainpage = () => {
       }
     }
   }, [user.profile, state]);
+  
   return (
     <Layout>
+     
       {state ? (
         <TodayUpdateModal state={state} setState={setState} />
       ) : (
-        <Outlet />
+        <>
+          <Outlet />
+        </>
       )}
     </Layout>
   );

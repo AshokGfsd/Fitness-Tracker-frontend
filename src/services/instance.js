@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const baseURL = "https://fitness-tracker-backend-st6a.onrender.com";
-
+const baseURL =
+  "http://127.0.0.1:4444" ||
+  "https://fitness-tracker-backend-st6a.onrender.com";
 const instance = axios.create({
   baseURL,
   timeout: 5000,

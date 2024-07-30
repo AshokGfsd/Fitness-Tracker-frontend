@@ -107,7 +107,7 @@ const User = () => {
       </table>
     </div>
   ) : (
-    <div className="">
+    <div className="dash">      
       <h1>User</h1>
       <div className="">
         Please Login or signin To continue
