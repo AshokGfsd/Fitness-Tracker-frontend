@@ -26,7 +26,7 @@ const validate = (values) => {
   } else if (!password) {
     error.password = "*Required";
     error.state = true;
-  } else if (password.length <7) {
+  } else if (password.length < 7) {
     error.password = "Password must contain min length 8";
     error.state = true;
   } else if (!uppercase.test(password)) {
@@ -91,7 +91,6 @@ const SignModal = () => {
     });
     toast.loading("Registering with given details");
     const { userName, email, gender, DOB, password } = formData;
-    console.log(formData);
     userServices
       .register({ userName, email, gender, DOB, password })
       .then((response) => {
@@ -103,23 +102,22 @@ const SignModal = () => {
         }, 1000);
       })
       .catch((e) => {
-        console.log(e);
         const message = e.response.data.message;
         toast.dismiss();
         return toast.error(message);
       });
-    // setFormData({
-    //   userName: "",
-    //   email: "",
-    //   gender: "male",
-    //   DOB: "2000-01-01",
-    //   password: "",
-    //   confirmPassword: "",
-    // });
+    setFormData({
+      userName: "",
+      email: "",
+      gender: "male",
+      DOB: "2000-01-01",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
   return (
-    <Dialog.Root open={true} >
+    <Dialog.Root open={true}>
       <Dialog.Trigger>Sign in</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="DialogOverlay" />
@@ -258,9 +256,7 @@ const SignModal = () => {
             </fieldset>
           )}
           <center>
-            <Link className="Button green" to={"/login"}>
-              I already have account
-            </Link>
+            <Link to={"/login"}>I already have account</Link>
           </center>
           <div
             style={{

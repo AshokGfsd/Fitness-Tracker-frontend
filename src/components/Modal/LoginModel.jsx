@@ -138,9 +138,7 @@ const LoginModal = () => {
             </fieldset>
           )}
           <center>
-            <Link className="Button green" to={"/forgot"}>
-              Forgot Password
-            </Link>
+            <Link to={"/forgot"}>Forgot Password</Link>
           </center>
           <div
             style={{
@@ -149,11 +147,10 @@ const LoginModal = () => {
               justifyContent: "flex-end",
             }}
           >
-            <Dialog.Close asChild>
+           
               <button className="Button green" onClick={submitHandler}>
                 Log in
               </button>
-            </Dialog.Close>
           </div>
 
           <Dialog.Close asChild>

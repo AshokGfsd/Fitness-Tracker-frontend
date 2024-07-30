@@ -68,46 +68,50 @@ const User = () => {
       </div>
       <h1>User Details</h1>
       <table cellPadding={7.5}>
-        <tr>
-          <td>Age</td>
-          <td>:</td>
-          <td>{user.age}</td>
-        </tr>
-        <tr>
-          <td>Height</td>
-          <td>:</td>
-          <td>
-            {user.height.length != 0 &&
-              user.height[user.height.length - 1].value}
-          </td>
-        </tr>
-        <tr>
-          <td>Weight</td>
-          <td>:</td>
-          <td>
-            {user.weight.length != 0 &&
-              user.weight[user.weight.length - 1].value}
-          </td>
-        </tr>
-        <tr>
-          <td>BMI</td>
-          <td>:</td>
-          <td>{user.BMI.length != 0 && user.BMI[user.BMI.length - 1].value}</td>
-        </tr>
-        <tr>
-          <td>STAGE</td>
-          <td>:</td>
-          <td>
-            <span style={{ backgroundColor: aim.color }}>
-              <RxAvatar />
-              {aim.Name}
-            </span>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>Age</td>
+            <td>:</td>
+            <td>{user.age}</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td>:</td>
+            <td>
+              {user.height.length != 0 &&
+                user.height[user.height.length - 1].value}
+            </td>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td>:</td>
+            <td>
+              {user.weight.length != 0 &&
+                user.weight[user.weight.length - 1].value}
+            </td>
+          </tr>
+          <tr>
+            <td>BMI</td>
+            <td>:</td>
+            <td>
+              {user.BMI.length != 0 && user.BMI[user.BMI.length - 1].value}
+            </td>
+          </tr>
+          <tr>
+            <td>STAGE</td>
+            <td>:</td>
+            <td>
+              <span style={{ backgroundColor: aim.color }}>
+                <RxAvatar />
+                {aim.Name}
+              </span>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   ) : (
-    <div className="dash">      
+    <div className="dash">
       <h1>User</h1>
       <div className="">
         Please Login or signin To continue

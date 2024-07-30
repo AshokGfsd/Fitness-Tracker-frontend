@@ -76,7 +76,6 @@ const Mainpage = () => {
 
   useEffect(() => {
     if (user.log) {
-      console.log(user);
       if (
         user.profile.BMI.length == 0 ||
         new Date().getDate() !==

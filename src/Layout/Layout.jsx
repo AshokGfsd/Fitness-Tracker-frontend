@@ -8,31 +8,22 @@ const Layout = ({ children }) => {
   const handleClick = () => {
     setPath(window.location.pathname);
   };
-  console.log(path);
   return (
     <main className="layout">
       <section className="sidebar" onClick={handleClick}>
         <Sidebar />
       </section>
       <section className="page">
-        {path == "/" && (
-          <img src="./public/11.jpg" alt="" className="image" srcset="" />
-        )}
+        {path == "/" && <img src="./11.jpg" alt="" className="image" />}
         {path == "/exercises" && (
-          <img src="./public/15.jpg" alt="" className="image" srcset="" />
+          <img src="./15.jpg" alt="" className="image" />
         )}
-        {path == "/foods" && (
-          <img src="./public/2.jpg" alt="" className="image" srcset="" />
-        )}
-        {path == "/goals" && (
-          <img src="./public/14.jpg" alt="" className="image" srcset="" />
-        )}
+        {path == "/foods" && <img src="./2.jpg" alt="" className="image" />}
+        {path == "/goals" && <img src="./14.jpg" alt="" className="image" />}
         {path == "/suggestion" && (
-          <img src="./public/13.jpg" alt="" className="image" srcset="" />
+          <img src="./13.jpg" alt="" className="image" />
         )}
-        {path == "/user" && (
-          <img src={"./public/8.jpg"} className={"image"} alt="" srcset="" />
-        )}
+        {path == "/user" && <img src={"./8.jpg"} className={"image"} alt="" />}
         {children}
       </section>
     </main>
