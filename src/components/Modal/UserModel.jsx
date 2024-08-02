@@ -32,6 +32,7 @@ const validate = (values) => {
 
 const UserModal = ({ state, setState }) => {
   const { profile: user } = useSelector(selectUser);
+  const { log } = useSelector(selectUser);
 
   const [error, setError] = useState({
     userName: "",
@@ -49,13 +50,21 @@ const UserModal = ({ state, setState }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     const { userName, DOB, gender } = user;
-    setFormData({
-      userName,
-      DOB,
-      gender,
-      height: user.height[user.height.length - 1].value,
-      weight: user.weight[user.weight.length - 1].value,
-    });
+    if (log) {
+      setFormData({
+        userName,
+        DOB,
+        gender,
+        height:
+          user.height.length == 0
+            ? 0
+            : user.height[user.height.length - 1].value,
+        weight:
+          user.weight.length == 0
+            ? 0
+            : user.weight[user.weight.length - 1].value,
+      });
+    }
   }, [user]);
   const style = {
     color: "red",

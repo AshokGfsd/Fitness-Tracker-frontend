@@ -67,7 +67,7 @@ const User = () => {
         Get more features You can also use this form for edit
       </div>
       <h1>User Details</h1>
-      <table cellPadding={7.5}>
+      <table cellPadding={7.5} style={{fontSize:"20px",color:"white"}}>
         <tbody>
           <tr>
             <td>Age</td>
