@@ -59,6 +59,7 @@ const LoginModal = () => {
       .login(email, password)
       .then((response) => {
         const { message, token } = response.data;
+        console.log(response.data)
         document.cookie = `token=${token}`;
         toast.dismiss();
         toast.success(message);
